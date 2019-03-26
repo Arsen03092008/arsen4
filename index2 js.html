@@ -5,9 +5,30 @@
     <title>Title</title>
 </head>
 <body>
-<center><div style="font-size: 40px;font-weight: bold;background: black; color: green">0</div>
-<button><img src="button.png" width="50" height="50"></button>
-<button><img src="pause.png" width="50" height="50"></button>
-    <button><img src="bin.png" width="50" height="50"></button></center>
+<center><div style="font-size: 40px;font-weight: bold;background: black; color: green" id="time">0</div>
+<button onclick="start()"><img src="button.png" width="50" height="50"></button>
+<button onclick="pause()"><img src="pause.png" width="50" height="50"></button>
+    <button onclick="stop()"><img src="bin.png" width="50" height="50"></button></center>
 </body>
+<script>
+    i = 0
+    time = null
+    function pause () {
+        clearInterval(time)
+    }
+    function stop () {
+        clearInterval(time)
+        i=0
+        document.getElementById('time').innerHTML=i
+    }
+    function start() {
+        i=0
+        clearInterval(time)
+        time=setInterval(function () {
+            i++
+            document.getElementById("time").innerHTML=i
+
+        },1000)
+    }
+</script>
 </html>
